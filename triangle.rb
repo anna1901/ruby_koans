@@ -13,8 +13,12 @@
 # and
 #   about_triangle_project_2.rb
 #
+
 def triangle(a, b, c)
+  a, b, c = [a, b, c].sort
   case
+  when a <= 0 || a + b <= c
+    raise TriangleError, "Wrong lengths"
   when a == b && a == c
     :equilateral
   when a == b && a !=c || a == c && a!=b || b==c && a!=b
@@ -22,8 +26,6 @@ def triangle(a, b, c)
   else
     :scalene
   end
-  # if a == b == c
-
 end
 
 # Error class used in part 2.  No need to change this code.
